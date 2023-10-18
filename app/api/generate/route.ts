@@ -70,9 +70,8 @@ export async function POST(request: NextRequest) {
   //
   console.log(imageUrl);
   
-  //const file = await fetch(imageUrl).then((res) => res.blob());
-  const file = await fetch('https://pbxt.replicate.delivery/7FgrUPUompIKLBbYpzLsv58ZM2Pzcvry63bkSSsHVrNEY4bE/seed-54020.png').then((res) => res.blob());
-
+  const file = await fetch(imageUrl).then((res) => res.blob());
+  
   // upload & store in Vercel Blob
   const { url } = await put(`${id}.png`, file, { access: 'public' });
   console.log(url);
@@ -89,6 +88,8 @@ export async function POST(request: NextRequest) {
     model_latency_ms: Math.round(durationMS),
     id: id,
   };
+
+  console.log(QrGenerateResponse);
 
   return new Response(JSON.stringify(response), {
     status: 200,
