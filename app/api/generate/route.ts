@@ -89,8 +89,6 @@ export async function POST(request: NextRequest) {
     id: id,
   };
 
-  console.log(QrGenerateResponse);
-
   return new Response(JSON.stringify(response), {
     status: 200,
   });
