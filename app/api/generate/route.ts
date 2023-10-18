@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
   const id = nanoid();
   const startTime = performance.now();
 
-  conseole.log(id);
+  console.log(id);
 
   let imageUrl = await replicateClient.generateQrCode({
     url: reqBody.url,
