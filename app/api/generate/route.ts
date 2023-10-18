@@ -65,11 +65,16 @@ export async function POST(request: NextRequest) {
   const durationMS = endTime - startTime;
 
   // convert output to a blob object
-  const file = await fetch(imageUrl).then((res) => res.blob());
+  //
+  console.log(imageUrl);
+  
+  //const file = await fetch(imageUrl).then((res) => res.blob());
+  const file = await fetch('https://pbxt.replicate.delivery/7FgrUPUompIKLBbYpzLsv58ZM2Pzcvry63bkSSsHVrNEY4bE/seed-54020.png').then((res) => res.blob());
 
   // upload & store in Vercel Blob
   const { url } = await put(`${id}.png`, file, { access: 'public' });
-
+  console.log(url);
+  
   await kv.hset(id, {
     prompt: reqBody.prompt,
     image: url,
