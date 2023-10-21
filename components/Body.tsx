@@ -148,7 +148,7 @@ const Body = ({
               <div className="flex flex-col gap-4">
                 <FormField
                   control={form.control}
-                  name="url"
+                  name="pix"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Chave PIX</FormLabel>
