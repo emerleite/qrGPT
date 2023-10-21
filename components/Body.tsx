@@ -151,9 +151,9 @@ const Body = ({
                   name="url"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>URL</FormLabel>
+                      <FormLabel>Chave PIX</FormLabel>
                       <FormControl>
-                        <Input placeholder="roomgpt.io" {...field} />
+                        <Input placeholder="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" {...field} />
                       </FormControl>
                       <FormDescription>
                         This is what your QR code will link to.
