@@ -10,12 +10,12 @@ import { nanoid } from '@/utils/utils';
  * Validates a request object.
  *
  * @param {QrGenerateRequest} request - The request object to be validated.
- * @throws {Error} Error message if URL or prompt is missing.
+ * @throws {Error} Error message if PIX or prompt is missing.
  */
 
 const validateRequest = (request: QrGenerateRequest) => {
-  if (!request.url) {
-    throw new Error('URL is required');
+  if (!request.pix) {
+    throw new Error('PIX is required');
   }
   if (!request.prompt) {
     throw new Error('Prompt is required');
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
   console.log(id);
 
   let imageUrl = await replicateClient.generateQrCode({
-    url: reqBody.url,
+    pix: reqBody.pix,
     prompt: reqBody.prompt,
     qr_conditioning_scale: 2,
     num_inference_steps: 30,
